@@ -16,69 +16,69 @@ interface SummaryResult {
 
 const VerticalLineDiagram = () => (
     <svg viewBox="0 0 100 100" className="w-full h-full">
-        <line x1="50" y1="10" x2="50" y2="90" stroke="#0ea5e9" strokeWidth="4" strokeLinecap="round" />
-        <circle cx="50" cy="10" r="5" fill="#f97316" />
-        <circle cx="50" cy="90" r="5" fill="#f97316" />
+        <line x1="50" y1="10" x2="50" y2="90" stroke="#516163" strokeWidth="4" strokeLinecap="round" />
+        <circle cx="50" cy="10" r="5" fill="#323B3C" />
+        <circle cx="50" cy="90" r="5" fill="#323B3C" />
     </svg>
 );
 
 const HorizontalLineDiagram = () => (
     <svg viewBox="0 0 100 100" className="w-full h-full">
-        <line x1="10" y1="50" x2="90" y2="50" stroke="#0ea5e9" strokeWidth="4" strokeLinecap="round" />
-        <circle cx="10" cy="50" r="5" fill="#f97316" />
-        <circle cx="90" cy="50" r="5" fill="#f97316" />
+        <line x1="10" y1="50" x2="90" y2="50" stroke="#516163" strokeWidth="4" strokeLinecap="round" />
+        <circle cx="10" cy="50" r="5" fill="#323B3C" />
+        <circle cx="90" cy="50" r="5" fill="#323B3C" />
     </svg>
 );
 
 const TeeJointDiagram = () => (
     <svg viewBox="0 0 100 100" className="w-full h-full">
-        <line x1="10" y1="50" x2="90" y2="50" stroke="#0ea5e9" strokeWidth="4" strokeLinecap="round" />
-        <line x1="10" y1="50" x2="10" y2="90" stroke="#0ea5e9" strokeWidth="4" strokeLinecap="round" />
-        <circle cx="10" cy="50" r="5" fill="#f97316" />
-        <circle cx="90" cy="50" r="5" fill="#f97316" />
-        <circle cx="10" cy="90" r="5" fill="#f97316" />
+        <line x1="10" y1="50" x2="90" y2="50" stroke="#516163" strokeWidth="4" strokeLinecap="round" />
+        <line x1="10" y1="50" x2="10" y2="90" stroke="#516163" strokeWidth="4" strokeLinecap="round" />
+        <circle cx="10" cy="50" r="5" fill="#323B3C" />
+        <circle cx="90" cy="50" r="5" fill="#323B3C" />
+        <circle cx="10" cy="90" r="5" fill="#323B3C" />
     </svg>
 );
 
 const RectangularWeldDiagram = () => (
     <svg viewBox="0 0 100 100" className="w-full h-full">
-        <rect x="15" y="30" width="70" height="40" stroke="#0ea5e9" strokeWidth="4" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
-        <circle cx="15" cy="30" r="5" fill="#f97316" />
-        <circle cx="85" cy="30" r="5" fill="#f97316" />
-        <circle cx="15" cy="70" r="5" fill="#f97316" />
-        <circle cx="85" cy="70" r="5" fill="#f97316" />
+        <rect x="15" y="30" width="70" height="40" stroke="#516163" strokeWidth="4" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
+        <circle cx="15" cy="30" r="5" fill="#323B3C" />
+        <circle cx="85" cy="30" r="5" fill="#323B3C" />
+        <circle cx="15" cy="70" r="5" fill="#323B3C" />
+        <circle cx="85" cy="70" r="5" fill="#323B3C" />
     </svg>
 );
 
 const TwoVerticalLinesDiagram = () => (
     <svg viewBox="0 0 100 100" className="w-full h-full">
-        <line x1="30" y1="10" x2="30" y2="90" stroke="#0ea5e9" strokeWidth="4" strokeLinecap="round" />
-        <line x1="70" y1="10" x2="70" y2="90" stroke="#0ea5e9" strokeWidth="4" strokeLinecap="round" />
-        <circle cx="30" cy="10" r="5" fill="#f97316" />
-        <circle cx="30" cy="90" r="5" fill="#f97316" />
-        <circle cx="70" cy="10" r="5" fill="#f97316" />
-        <circle cx="70" cy="90" r="5" fill="#f97316" />
+        <line x1="30" y1="10" x2="30" y2="90" stroke="#516163" strokeWidth="4" strokeLinecap="round" />
+        <line x1="70" y1="10" x2="70" y2="90" stroke="#516163" strokeWidth="4" strokeLinecap="round" />
+        <circle cx="30" cy="10" r="5" fill="#323B3C" />
+        <circle cx="30" cy="90" r="5" fill="#323B3C" />
+        <circle cx="70" cy="10" r="5" fill="#323B3C" />
+        <circle cx="70" cy="90" r="5" fill="#323B3C" />
     </svg>
 );
 
 const TwoHorizontalLinesDiagram = () => (
     <svg viewBox="0 0 100 100" className="w-full h-full">
-        <line x1="10" y1="30" x2="90" y2="30" stroke="#0ea5e9" strokeWidth="4" strokeLinecap="round" />
-        <line x1="10" y1="70" x2="90" y2="70" stroke="#0ea5e9" strokeWidth="4" strokeLinecap="round" />
-        <circle cx="10" cy="30" r="5" fill="#f97316" />
-        <circle cx="90" cy="30" r="5" fill="#f97316" />
-        <circle cx="10" cy="70" r="5" fill="#f97316" />
-        <circle cx="90" cy="70" r="5" fill="#f97316" />
+        <line x1="10" y1="30" x2="90" y2="30" stroke="#516163" strokeWidth="4" strokeLinecap="round" />
+        <line x1="10" y1="70" x2="90" y2="70" stroke="#516163" strokeWidth="4" strokeLinecap="round" />
+        <circle cx="10" cy="30" r="5" fill="#323B3C" />
+        <circle cx="90" cy="30" r="5" fill="#323B3C" />
+        <circle cx="10" cy="70" r="5" fill="#323B3C" />
+        <circle cx="90" cy="70" r="5" fill="#323B3C" />
     </svg>
 );
 
 const CShapeDiagram = () => (
     <svg viewBox="0 0 100 100" className="w-full h-full">
-        <path d="M 70 20 L 30 20 L 30 80 L 70 80" stroke="#0ea5e9" strokeWidth="4" fill="none" strokeLinecap="round" />
-        <circle cx="70" cy="20" r="5" fill="#f97316" />
-        <circle cx="30" cy="20" r="5" fill="#f97316" />
-        <circle cx="30" cy="80" r="5" fill="#f97316" />
-        <circle cx="70" cy="80" r="5" fill="#f97316" />
+        <path d="M 70 20 L 30 20 L 30 80 L 70 80" stroke="#516163" strokeWidth="4" fill="none" strokeLinecap="round" />
+        <circle cx="70" cy="20" r="5" fill="#323B3C" />
+        <circle cx="30" cy="20" r="5" fill="#323B3C" />
+        <circle cx="30" cy="80" r="5" fill="#323B3C" />
+        <circle cx="70" cy="80" r="5" fill="#323B3C" />
     </svg>
 );
 
@@ -279,14 +279,14 @@ const performManualCalculations = (example: VerificationExample): ManualCalculat
 
 const VerificationCard: React.FC<{example: VerificationExample, onDownload: (example: VerificationExample) => void, isDownloading: boolean}> = ({ example, onDownload, isDownloading }) => {
     return (
-        <div className="bg-white rounded-lg shadow-lg p-6 border border-gray-200 flex flex-col items-center text-center transition-transform hover:scale-105">
-            <h3 className="text-xl font-bold text-blue-600 mb-2">{example.title}</h3>
+        <div className="bg-white rounded-lg shadow-lg p-6 border border-[var(--light-blue)] flex flex-col items-center text-center transition-transform hover:scale-105">
+            <h3 className="text-xl font-bold text-[var(--dark-gray)] mb-2">{example.title}</h3>
             <div className="w-32 h-32 my-4">{example.image}</div>
-            <p className="text-gray-600 mb-6 flex-grow">{example.description}</p>
+            <p className="text-[var(--medium-gray)] mb-6 flex-grow">{example.description}</p>
             <button 
                 onClick={() => onDownload(example)}
                 disabled={isDownloading}
-                className="w-full mt-auto px-6 py-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg shadow-md transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-75 disabled:bg-gray-400 disabled:cursor-not-allowed"
+                className="w-full mt-auto px-6 py-2 bg-[var(--dark-gray)] hover:bg-[var(--medium-gray)] text-white font-semibold rounded-lg shadow-md transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[var(--dark-gray)] disabled:bg-gray-400 disabled:cursor-not-allowed"
             >
                 Download Verification PDF
             </button>
@@ -409,24 +409,24 @@ const VerificationPage: React.FC = () => {
     return (
         <main className="flex-grow">
             <div className="text-center mb-8">
-                <h2 className="text-3xl font-bold text-blue-600">Calculation Verification</h2>
-                <p className="text-lg text-gray-600 mt-2">
+                <h2 className="text-3xl font-bold text-[var(--dark-gray)]">Calculation Verification</h2>
+                <p className="text-lg text-[var(--medium-gray)] mt-2">
                     A summary of verifications against standard formulas is below.
                     <br />
                     Click any card to download a detailed report with a full manual calculation breakdown.
                 </p>
             </div>
             
-            <div className="mb-12 bg-white rounded-lg shadow-lg p-6 border border-gray-200 overflow-x-auto max-w-7xl mx-auto">
-                <h2 className="text-2xl font-bold text-blue-600 mb-4 text-center">Verification Summary</h2>
+            <div className="mb-12 bg-white rounded-lg shadow-lg p-6 border border-[var(--light-blue)] overflow-x-auto max-w-7xl mx-auto">
+                <h2 className="text-2xl font-bold text-[var(--dark-gray)] mb-4 text-center">Verification Summary</h2>
                 <table className="w-full text-left text-sm border-collapse">
-                    <thead className="bg-gray-100 border-b-2 border-gray-300">
+                    <thead className="bg-[#f7fcfc] border-b-2 border-[var(--light-blue)]">
                         <tr>
-                            <th className="p-3 font-semibold text-gray-800">Shape</th>
-                            <th className="p-3 font-semibold text-gray-800">Property</th>
-                            <th className="p-3 font-semibold text-gray-800 text-right">App Result</th>
-                            <th className="p-3 font-semibold text-gray-800 text-right">Manual Result</th>
-                            <th className="p-3 font-semibold text-gray-800 text-center">Status</th>
+                            <th className="p-3 font-semibold text-[var(--dark-gray)]">Shape</th>
+                            <th className="p-3 font-semibold text-[var(--dark-gray)]">Property</th>
+                            <th className="p-3 font-semibold text-[var(--dark-gray)] text-right">App Result</th>
+                            <th className="p-3 font-semibold text-[var(--dark-gray)] text-right">Manual Result</th>
+                            <th className="p-3 font-semibold text-[var(--dark-gray)] text-center">Status</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -437,13 +437,13 @@ const VerificationPage: React.FC = () => {
                             return (
                                 <React.Fragment key={example.id}>
                                     {resultsForExample.map((result, resultIndex) => (
-                                        <tr key={`${example.id}-${result.property}`} className="border-t border-gray-200">
+                                        <tr key={`${example.id}-${result.property}`} className="border-t border-[var(--light-blue)]">
                                             {resultIndex === 0 && (
-                                                <td rowSpan={3} className="p-3 font-semibold text-gray-900 border-r border-gray-200 align-middle">{example.title}</td>
+                                                <td rowSpan={3} className="p-3 font-semibold text-[var(--dark-gray)] border-r border-[var(--light-blue)] align-middle">{example.title}</td>
                                             )}
-                                            <td className="p-3 text-gray-800">{result.property}</td>
-                                            <td className="p-3 font-mono text-right text-gray-900">{result.appValue.toFixed(3)}</td>
-                                            <td className="p-3 font-mono text-right text-gray-900">{result.manualValue.toFixed(3)}</td>
+                                            <td className="p-3 text-[var(--medium-gray)]">{result.property}</td>
+                                            <td className="p-3 font-mono text-right text-[var(--dark-gray)]">{result.appValue.toFixed(3)}</td>
+                                            <td className="p-3 font-mono text-right text-[var(--dark-gray)]">{result.manualValue.toFixed(3)}</td>
                                             <td className={`p-3 text-center font-bold ${result.isMatch ? 'text-green-600' : 'text-red-600'}`}>
                                                 {result.isMatch ? '✔ Match' : '✘ Mismatch'}
                                             </td>

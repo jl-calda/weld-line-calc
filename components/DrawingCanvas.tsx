@@ -221,7 +221,8 @@ const DrawingCanvas: React.FC<DrawingCanvasProps> = ({
           key={`v-${i}`}
           x1={i} y1={viewTopLeft.y}
           x2={i} y2={viewBottomRight.y}
-          stroke={isMajor ? "#d1d5db" : "#e5e7eb"}
+          stroke="#CCE8E5"
+          strokeOpacity={isMajor ? 1 : 0.5}
           strokeWidth={(isMajor ? 1 : 0.5) / viewTransform.k}
         />
       );
@@ -236,7 +237,8 @@ const DrawingCanvas: React.FC<DrawingCanvasProps> = ({
           key={`h-${i}`}
           x1={viewTopLeft.x} y1={i}
           x2={viewBottomRight.x} y2={i}
-          stroke={isMajor ? "#d1d5db" : "#e5e7eb"}
+          stroke="#CCE8E5"
+          strokeOpacity={isMajor ? 1 : 0.5}
           strokeWidth={(isMajor ? 1 : 0.5) / viewTransform.k}
         />
       );
@@ -251,10 +253,10 @@ const DrawingCanvas: React.FC<DrawingCanvasProps> = ({
   }, [lineStartNodeId, nodes]);
 
   return (
-    <div className="bg-white rounded-lg shadow-lg p-4 flex-grow aspect-w-1 aspect-h-1 border border-gray-200">
+    <div className="bg-white rounded-lg shadow-lg p-4 flex-grow aspect-w-1 aspect-h-1 border border-[var(--light-blue)]">
       <svg
         ref={svgRef}
-        className="w-full h-full cursor-crosshair bg-gray-50/50 rounded"
+        className="w-full h-full cursor-crosshair bg-[#f7fcfc] rounded"
         onClick={handleBackgroundClick}
         onMouseMove={handleMouseMove}
         onMouseDown={handleMouseDown}
@@ -262,16 +264,16 @@ const DrawingCanvas: React.FC<DrawingCanvasProps> = ({
         onMouseLeave={handleMouseLeave}
         onWheel={handleWheel}
       >
-        <rect width="100%" height="100%" fill="#f9fafb" />
+        <rect width="100%" height="100%" fill="#f7fcfc" />
         
         <g ref={gRef} transform={`translate(${viewTransform.x} ${viewTransform.y}) scale(${viewTransform.k})`}>
           {gridLines}
           {showOrigin && (
             <>
-              <line x1="-10000" y1="0" x2="10000" y2="0" stroke="#9ca3af" strokeWidth={0.75 / viewTransform.k} strokeDasharray={`${4 / viewTransform.k} ${2 / viewTransform.k}`} />
-              <line x1="0" y1="-10000" x2="0" y2="10000" stroke="#9ca3af" strokeWidth={0.75 / viewTransform.k} strokeDasharray={`${4 / viewTransform.k} ${2 / viewTransform.k}`} />
-              <text x={5 / viewTransform.k} y={-5 / viewTransform.k} fontSize={10 / viewTransform.k} fill="#6b7280" className="select-none">Y</text>
-              <text x={-15 / viewTransform.k} y={15 / viewTransform.k} fontSize={10 / viewTransform.k} fill="#6b7280" className="select-none">X</text>
+              <line x1="-10000" y1="0" x2="10000" y2="0" stroke="#516163" strokeWidth={0.75 / viewTransform.k} strokeDasharray={`${4 / viewTransform.k} ${2 / viewTransform.k}`} />
+              <line x1="0" y1="-10000" x2="0" y2="10000" stroke="#516163" strokeWidth={0.75 / viewTransform.k} strokeDasharray={`${4 / viewTransform.k} ${2 / viewTransform.k}`} />
+              <text x={5 / viewTransform.k} y={-5 / viewTransform.k} fontSize={10 / viewTransform.k} fill="#516163" className="select-none">Y</text>
+              <text x={-15 / viewTransform.k} y={15 / viewTransform.k} fontSize={10 / viewTransform.k} fill="#516163" className="select-none">X</text>
             </>
           )}
 
@@ -288,7 +290,7 @@ const DrawingCanvas: React.FC<DrawingCanvasProps> = ({
               <line
                 x1={line.start.x} y1={line.start.y}
                 x2={line.end.x} y2={line.end.y}
-                stroke={isSelected ? "#ec4899" : "#0ea5e9"} 
+                stroke={isSelected ? "#323B3C" : "#516163"} 
                 strokeWidth={(isSelected ? 3 : 2) / viewTransform.k} 
                 strokeLinecap="round"
               />
@@ -296,7 +298,7 @@ const DrawingCanvas: React.FC<DrawingCanvasProps> = ({
                 x={(line.start.x + line.end.x) / 2}
                 y={(line.start.y + line.end.y) / 2}
                 fontSize={8 / viewTransform.k}
-                fill="#1f2937"
+                fill="#323B3C"
                 textAnchor="middle"
                 dy={-4 / viewTransform.k}
                 className="select-none"
@@ -307,7 +309,7 @@ const DrawingCanvas: React.FC<DrawingCanvasProps> = ({
           )})}
           
            {showExtremeDistances && centroid && extremeDistances && boundingBox && (
-                <g className="dimension-lines" stroke="#3b82f6" strokeWidth={0.75 / viewTransform.k} fill="#3b82f6">
+                <g className="dimension-lines" stroke="#516163" strokeWidth={0.75 / viewTransform.k} fill="#516163">
                     {/* Top */}
                     {extremeDistances.cTop > EPSILON && <>
                         <line x1={centroid.x} y1={centroid.y} x2={centroid.x} y2={boundingBox.maxY} strokeDasharray={`${3/viewTransform.k} ${2/viewTransform.k}`} />
@@ -344,13 +346,13 @@ const DrawingCanvas: React.FC<DrawingCanvasProps> = ({
             <g key={node.id} onClick={(e) => { e.stopPropagation(); onNodeClick(node.id); }} className="cursor-pointer">
               <circle
                 cx={node.x} cy={node.y} r={(isSelected ? 5 : 4) / viewTransform.k}
-                fill={isSelected ? "#ec4899" : "#f97316"} 
+                fill={isSelected ? "#323B3C" : "#516163"} 
                 stroke="#ffffff" strokeWidth={1.5 / viewTransform.k}
               />
               <text
                 x={node.x} y={node.y}
                 fontSize={8 / viewTransform.k}
-                fill="#c2410c"
+                fill="#323B3C"
                 textAnchor="middle"
                 dy={-8 / viewTransform.k}
                 className="select-none"
@@ -361,9 +363,9 @@ const DrawingCanvas: React.FC<DrawingCanvasProps> = ({
           )})}
           {centroid && (
             <g>
-              <line x1={centroid.x - 8/viewTransform.k} y1={centroid.y} x2={centroid.x + 8/viewTransform.k} y2={centroid.y} stroke="#e11d48" strokeWidth={2/viewTransform.k} />
-              <line x1={centroid.x} y1={centroid.y - 8/viewTransform.k} x2={centroid.x} y2={centroid.y + 8/viewTransform.k} stroke="#e11d48" strokeWidth={2/viewTransform.k} />
-              <circle cx={centroid.x} cy={centroid.y} r={4/viewTransform.k} fill="none" stroke="#e11d48" strokeWidth={2/viewTransform.k} />
+              <line x1={centroid.x - 8/viewTransform.k} y1={centroid.y} x2={centroid.x + 8/viewTransform.k} y2={centroid.y} stroke="#323B3C" strokeWidth={2/viewTransform.k} />
+              <line x1={centroid.x} y1={centroid.y - 8/viewTransform.k} x2={centroid.x} y2={centroid.y + 8/viewTransform.k} stroke="#323B3C" strokeWidth={2/viewTransform.k} />
+              <circle cx={centroid.x} cy={centroid.y} r={4/viewTransform.k} fill="none" stroke="#323B3C" strokeWidth={2/viewTransform.k} />
             </g>
           )}
 
@@ -371,7 +373,7 @@ const DrawingCanvas: React.FC<DrawingCanvasProps> = ({
             <line
                 x1={lineStartNode.x} y1={lineStartNode.y}
                 x2={cursorPos.x} y2={cursorPos.y}
-                stroke="#10b981"
+                stroke="#516163"
                 strokeWidth={1.5 / viewTransform.k}
                 strokeDasharray={`${4 / viewTransform.k} ${2 / viewTransform.k}`}
             />
@@ -379,19 +381,19 @@ const DrawingCanvas: React.FC<DrawingCanvasProps> = ({
 
           {snappedNode && (
             <circle cx={snappedNode.x} cy={snappedNode.y} r={SNAP_RADIUS / viewTransform.k}
-              fill="none" stroke="#10b981" strokeWidth={2 / viewTransform.k} strokeDasharray={`${4 / viewTransform.k} ${2 / viewTransform.k}`}
+              fill="none" stroke="#516163" strokeWidth={2 / viewTransform.k} strokeDasharray={`${4 / viewTransform.k} ${2 / viewTransform.k}`}
             />
           )}
           {!snappedNode && snapToGrid && drawingMode === 'node' && cursorPos && (
              <circle cx={cursorPos.x} cy={cursorPos.y} r={3 / viewTransform.k}
-              fill="none" stroke="#10b981" strokeWidth={1.5 / viewTransform.k}
+              fill="none" stroke="#516163" strokeWidth={1.5 / viewTransform.k}
             />
           )}
           
           {cursorPos && (
              <g transform={`translate(${cursorPos.x}, ${cursorPos.y})`}>
                 <rect x={10 / viewTransform.k} y={10 / viewTransform.k} width={110 / viewTransform.k} height={20 / viewTransform.k} fill="rgba(255, 255, 255, 0.8)" rx={3/viewTransform.k} />
-                <text x={15 / viewTransform.k} y={24 / viewTransform.k} fontSize={10 / viewTransform.k} fill="#4b5563" className="font-mono select-none">
+                <text x={15 / viewTransform.k} y={24 / viewTransform.k} fontSize={10 / viewTransform.k} fill="#516163" className="font-mono select-none">
                     X:{cursorPos.x.toFixed(1)}, Y:{cursorPos.y.toFixed(1)}
                 </text>
             </g>

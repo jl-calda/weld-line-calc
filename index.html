@@ -4,6 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Advanced Welding Line Calculator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans+Narrow:wght@400;700&family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script type="importmap">
       {
@@ -17,6 +20,35 @@
       }
     </script>
     <style>
+      :root {
+        --dark-gray: #323B3C;
+        --medium-gray: #516163;
+        --light-blue: #CCE8E5;
+        --white: #FFFFFF;
+      }
+      body {
+        font-family: 'PT Sans', sans-serif;
+        background-color: var(--white);
+        color: var(--dark-gray);
+      }
+      h1, h2, h3, h4, h5, h6 {
+        font-family: 'PT Sans Narrow', sans-serif;
+      }
+      /* Custom scrollbar for a more modern look */
+      ::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #f1f1f1;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: var(--light-blue);
+        border-radius: 4px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #a8d5d1;
+      }
       @media print {
         body > #root {
           display: none;
@@ -31,7 +63,7 @@
       }
     </style>
   </head>
-  <body class="bg-gray-100">
+  <body>
     <div id="root"></div>
     <script type="module" src="/index.tsx"></script>
   </body>

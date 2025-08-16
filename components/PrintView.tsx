@@ -18,7 +18,7 @@ const VerificationResultRow: React.FC<{label: string, app: number, manual: numbe
 const PrintView: React.FC<PrintViewProps> = ({ nodes, linesWithCoords, results, settings }) => {
   if (nodes.length === 0 || !results) {
     return (
-      <div className="p-8 font-serif text-xs">
+      <div className="p-8 text-xs">
         <h1 className="text-xl font-bold mb-4 text-center">Weld Line Analysis Report</h1>
         <p className="text-center">No data available to generate a report. Please draw a weld line in the editor.</p>
       </div>
@@ -80,15 +80,15 @@ const PrintView: React.FC<PrintViewProps> = ({ nodes, linesWithCoords, results, 
   const EPSILON = 0.01;
 
   return (
-    <div className="p-8 font-serif text-xs text-black bg-white flex flex-col justify-between h-full" style={{ fontFamily: '"Times New Roman", Times, serif', fontSize: '12px' }}>
+    <div className="p-8 text-xs text-black bg-white flex flex-col justify-between h-full" style={{ fontSize: '12px' }}>
       <div>
-        <header className="mb-8 border-b-2 pb-4 border-black">
+        <header className="mb-4 border-b-2 pb-4 border-black">
           <h1 className={`text-2xl font-bold ${titleAlignClass}`}>{projectName || 'Weld Line Analysis Report'}</h1>
           {description && <p className={`text-black mt-2 max-w-3xl ${titleAlignment === 'center' ? 'mx-auto' : ''} ${descAlignClass}`}>{description}</p>}
         </header>
 
         {includeAdditionalInfo && additionalInfo.length > 0 && (
-            <section className="mb-8 break-inside-avoid">
+            <section className="mb-4 break-inside-avoid">
                  <h2 className="text-xl font-bold mb-4">Additional Information</h2>
                  <div className="max-w-4xl mx-auto bg-gray-50 p-6 rounded-lg border border-gray-400 space-y-2 text-black">
                     {additionalInfo.map(item => (
@@ -101,7 +101,7 @@ const PrintView: React.FC<PrintViewProps> = ({ nodes, linesWithCoords, results, 
             </section>
         )}
 
-        <section className="mb-8 break-inside-avoid">
+        <section className="mb-4 break-inside-avoid">
           <h2 className="text-xl font-bold mb-4">Diagram</h2>
           <div className={`mx-auto border-2 border-gray-300 rounded-lg p-2 ${diagramSizeClass}`}>
               <svg viewBox={`0 0 ${viewBoxWidth} ${viewBoxHeight}`} className="w-full h-auto">
@@ -113,12 +113,12 @@ const PrintView: React.FC<PrintViewProps> = ({ nodes, linesWithCoords, results, 
                           <line
                               x1={line.start.x} y1={line.start.y}
                               x2={line.end.x} y2={line.end.y}
-                              stroke="#0ea5e9" strokeWidth={2 / scale}
+                              stroke="#516163" strokeWidth={2 / scale}
                           />
                           <text
                               x={(line.start.x + line.end.x) / 2}
                               y={(line.start.y + line.end.y) / 2}
-                              fontSize={labelFontSize} fill="#0369a1" textAnchor="middle" dy={-6 / scale}
+                              fontSize={labelFontSize} fill="#323B3C" textAnchor="middle" dy={-6 / scale}
                           >
                               {length.toFixed(1)}mm
                           </text>
@@ -129,11 +129,11 @@ const PrintView: React.FC<PrintViewProps> = ({ nodes, linesWithCoords, results, 
                       <g key={node.id}>
                           <circle
                           cx={node.x} cy={node.y} r={4 / scale}
-                          fill="#f97316" stroke="#ffffff" strokeWidth={1.5 / scale}
+                          fill="#516163" stroke="#ffffff" strokeWidth={1.5 / scale}
                           />
                           <text
                           x={node.x} y={node.y}
-                          fontSize={labelFontSize} fill="#c2410c" textAnchor="middle" dy={-10 / scale}
+                          fontSize={labelFontSize} fill="#323B3C" textAnchor="middle" dy={-10 / scale}
                           >
                           N{index + 1}
                           </text>
@@ -141,14 +141,14 @@ const PrintView: React.FC<PrintViewProps> = ({ nodes, linesWithCoords, results, 
                       ))}
                       {centroid && (
                       <g>
-                          <line x1={centroid.x - 10/scale} y1={centroid.y} x2={centroid.x + 10/scale} y2={centroid.y} stroke="#e11d48" strokeWidth={2/scale} />
-                          <line x1={centroid.x} y1={centroid.y - 10/scale} x2={centroid.x} y2={centroid.y + 10/scale} stroke="#e11d48" strokeWidth={2/scale} />
-                          <circle cx={centroid.x} cy={centroid.y} r={5/scale} fill="none" stroke="#e11d48" strokeWidth={2/scale} />
-                          <text x={centroid.x} y={centroid.y} fontSize={labelFontSize} fill="#e11d48" textAnchor="start" dx={14/scale} dy={4/scale}>COG</text>
+                          <line x1={centroid.x - 10/scale} y1={centroid.y} x2={centroid.x + 10/scale} y2={centroid.y} stroke="#323B3C" strokeWidth={2/scale} />
+                          <line x1={centroid.x} y1={centroid.y - 10/scale} x2={centroid.x} y2={centroid.y + 10/scale} stroke="#323B3C" strokeWidth={2/scale} />
+                          <circle cx={centroid.x} cy={centroid.y} r={5/scale} fill="none" stroke="#323B3C" strokeWidth={2/scale} />
+                          <text x={centroid.x} y={centroid.y} fontSize={labelFontSize} fill="#323B3C" textAnchor="start" dx={14/scale} dy={4/scale}>COG</text>
                       </g>
                       )}
                       {includeExtremeDistances && centroid && extremeDistances && (
-                         <g className="dimension-lines" stroke="#3b82f6" strokeWidth={1 / scale} fill="#3b82f6">
+                         <g className="dimension-lines" stroke="#516163" strokeWidth={1 / scale} fill="#516163">
                             {extremeDistances.cTop > EPSILON && <>
                                 <line x1={centroid.x} y1={centroid.y} x2={centroid.x} y2={maxY} strokeDasharray={`${4/scale} ${2/scale}`} />
                                 <text x={centroid.x + 6/scale} y={(centroid.y + maxY)/2} fontSize={labelFontSize} >c-top: {extremeDistances.cTop.toFixed(1)}</text>
@@ -173,7 +173,7 @@ const PrintView: React.FC<PrintViewProps> = ({ nodes, linesWithCoords, results, 
         </section>
         
         {(includeNodesTable || includeLinesTable) && linesWithCoords.length > 0 && (
-            <section className="mb-8 break-inside-avoid">
+            <section className="mb-4 break-inside-avoid">
                 <div className={`grid ${includeNodesTable && includeLinesTable ? 'grid-cols-2' : 'grid-cols-1'} gap-8 break-inside-avoid`}>
                     {includeNodesTable && (
                         <div>
@@ -227,7 +227,7 @@ const PrintView: React.FC<PrintViewProps> = ({ nodes, linesWithCoords, results, 
         )}
 
         {includeResults && !verificationData && (
-          <section className="mt-8 break-inside-avoid">
+          <section className="mt-4 break-inside-avoid">
             <h2 className="text-xl font-bold text-black mb-4">Calculation Results</h2>
             <div className="max-w-4xl mx-auto bg-gray-50 p-6 rounded-lg border border-gray-400">
               <div className="grid grid-cols-2 gap-x-8 gap-y-2 mb-4">
@@ -260,7 +260,7 @@ const PrintView: React.FC<PrintViewProps> = ({ nodes, linesWithCoords, results, 
         
         {verificationData && (
           <>
-            <section className="mt-8 break-inside-avoid">
+            <section className="mt-4 break-inside-avoid">
                 <h2 className="text-xl font-bold text-black mb-4 border-b-2 border-black pb-2">Application Calculation Results</h2>
                 <div className="max-w-4xl mx-auto bg-gray-50 p-6 rounded-lg border border-gray-400">
                     <div className="grid grid-cols-2 gap-x-8 gap-y-2 text-black">
@@ -279,14 +279,14 @@ const PrintView: React.FC<PrintViewProps> = ({ nodes, linesWithCoords, results, 
                     </div>
                 </div>
             </section>
-            <section className="mt-8 break-inside-avoid">
+            <section className="mt-4 break-inside-avoid">
                 <h2 className="text-xl font-bold text-black mb-4 border-b-2 border-black pb-2">Manual Verification from First Principles</h2>
                 <p className="text-xs mb-4 text-gray-600">Calculations based on formulas for weld lines from roymech.org.</p>
                 <div className="space-y-4 max-w-3xl mx-auto text-xs">
                     {Object.entries(verificationData.manualCalcs).map(([key, calc]) => (
                         <div key={key} className="bg-gray-50 p-3 rounded-lg border border-gray-300 break-inside-avoid">
                            <p className="font-bold text-sm mb-2 text-gray-800">{calc.label}</p>
-                           <div className="mb-2 p-2 border-l-4 border-blue-500 bg-blue-50">
+                           <div className="mb-2 p-2 border-l-4 border-gray-500 bg-gray-100">
                              <span className="font-semibold">Formula:</span> 
                              <div className="mt-1 font-mono text-center text-sm p-2 bg-gray-200 rounded">{calc.formula}</div>
                            </div>
@@ -294,11 +294,11 @@ const PrintView: React.FC<PrintViewProps> = ({ nodes, linesWithCoords, results, 
                              <span className="font-semibold">Substitution:</span>
                              <code className="block mt-1 bg-gray-200 p-2 rounded text-gray-800 text-[11px] whitespace-normal break-words">{calc.substitution}</code>
                            </div>
-                           <p className="mt-2 text-right"><span className="font-semibold">Result = </span> <span className="font-mono font-bold text-blue-700">{calc.result.toFixed(3)}</span></p>
+                           <p className="mt-2 text-right"><span className="font-semibold">Result = </span> <span className="font-mono font-bold text-gray-700">{calc.result.toFixed(3)}</span></p>
                         </div>
                     ))}
                 </div>
-                <h3 className="text-lg font-bold mt-8 mb-3">Results Comparison</h3>
+                <h3 className="text-lg font-bold mt-4 mb-3">Results Comparison</h3>
                 <div className="max-w-4xl mx-auto bg-gray-50 p-6 rounded-lg border border-gray-400">
                     <div className="grid grid-cols-4 gap-x-4 pb-2 mb-2 border-b font-bold text-black">
                         <div>Property</div>
