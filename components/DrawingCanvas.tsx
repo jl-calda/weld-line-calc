@@ -214,7 +214,7 @@ const DrawingCanvas: React.FC<DrawingCanvasProps> = ({
 
     // Vertical lines
     const startX = Math.floor(viewTopLeft.x / gridSize) * gridSize;
-    for (let i = startX; i < viewBottomRight.x; i += gridSize) {
+    for (let i = startX; i <= viewBottomRight.x; i += gridSize) {
       const isMajor = Math.abs(i % majorGridSize) < 0.001;
       lines.push(
         <line
@@ -230,7 +230,7 @@ const DrawingCanvas: React.FC<DrawingCanvasProps> = ({
     
     // Horizontal lines
     const startY = Math.floor(viewTopLeft.y / gridSize) * gridSize;
-    for (let i = startY; i < viewBottomRight.y; i += gridSize) {
+    for (let i = startY; i <= viewBottomRight.y; i += gridSize) {
       const isMajor = Math.abs(i % majorGridSize) < 0.001;
       lines.push(
         <line
@@ -384,7 +384,7 @@ const DrawingCanvas: React.FC<DrawingCanvasProps> = ({
               fill="none" stroke="#516163" strokeWidth={2 / viewTransform.k} strokeDasharray={`${4 / viewTransform.k} ${2 / viewTransform.k}`}
             />
           )}
-          {!snappedNode && snapToGrid && drawingMode === 'node' && cursorPos && (
+          {!snappedNode && drawingMode === 'node' && cursorPos && (
              <circle cx={cursorPos.x} cy={cursorPos.y} r={3 / viewTransform.k}
               fill="none" stroke="#516163" strokeWidth={1.5 / viewTransform.k}
             />
