@@ -1,0 +1,5 @@
+{
+  "name": "Welding Line Inertia Calculator",
+  "description": "A web application to draw weld lines and calculate their geometric properties like centroid and moment of inertia.",
+  "requestFramePermissions": []
+}
